@@ -7,9 +7,16 @@ app.use(express.json());
 
 // Endpoint untuk register user
 app.post('/register', (req: Request, res: Response) => {
-    const { username, password } = req.body;
-    // Logika untuk register user
-    res.send('User registered');
+    const { username, password, passwordConfirm } = req.body;
+    
+    // Triggering file change
+    if (!username || !password || !passwordConfirm) {
+      return res.status(400).send("All field must be filled!");
+    }
+    if (password !== passwordConfirm) {
+      return res.status(400).send("Password confirmation not match");
+    }
+    res.send(`User ${username} registered`);
 });
 
 // Endpoint untuk login user
