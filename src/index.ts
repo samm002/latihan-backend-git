@@ -16,7 +16,7 @@ app.post('/register', (req: Request, res: Response) => {
 app.post('/login', (req: Request, res: Response) => {
   const { username, password } = req.body;
   // Logika untuk login user
-  res.send('User logged in');
+  res.send('User logged in2');
 });
 
 // Trigger change
